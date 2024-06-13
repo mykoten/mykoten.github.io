@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Card</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f7f7f7;
+        margin: 0;
+    }
+
+    .card {
+        width: 90vw;
+        max-width: 300px; /* Максимальная ширина карточки */
+        height: 350px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+    }
+
+    .kitten {
+        width: 120px;
+        height: 120px;
+        margin-top: 30px;
+        position: relative;
+        left: 80px;
+        top: 30px;
+    }
+
+    .kitten img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    p {
+        margin: 10px 0 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .hearts {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Чтобы события клика не применялись к сердечкам */
+    }
+
+    .heart {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-image: url('heart.png');
+        background-size: cover;
+    }
+</style>
+</head>
+<body>
+<div class="hearts"></div>
+<div class="card">
+  <div class="kitten">
+    <img src="kotenok.jpg" alt="Kitten">
+  </div>
+  <p style="position: relative; top: 50px;">Это ты❤️‍🩹💋</p>
+</div>
+<script>
+for (let i = 0; i < 50; i++) { // Сокращаем количество сердечек для оптимизации на мобильных устройствах
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.top = Math.random() * 90 + '%';
+    heart.style.left = Math.random() * 90 + '%';
+    document.querySelector('.hearts').appendChild(heart);
+}
+</script>
+</body>
+</html>
